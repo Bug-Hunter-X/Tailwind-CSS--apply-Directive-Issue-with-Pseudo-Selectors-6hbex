@@ -1,0 +1,13 @@
+To resolve this issue, avoid using the `@apply` directive with classes that contain pseudo-selectors. Instead, apply the styles directly in the component's stylesheet or use the standard Tailwind utility classes.  For example, modify the code like this:
+
+```css
+.btn {
+  bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn:hover {
+  @apply bg-blue-700;
+}
+```
+
+This approach ensures that the `bg-blue-500` is only applied in the default state and `bg-blue-700` only when hovering.
