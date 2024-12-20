@@ -1,0 +1,9 @@
+This bug occurs when using Tailwind's `@apply` directive with a class that contains a pseudo-selector like `:hover` or `:focus`. The `@apply` directive will apply the styles of the class in all states, not just the pseudo-selector state. This leads to the styles being applied even when the pseudo-selector condition is not met, resulting in unexpected visual appearances.  For example:
+
+```css
+.btn {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+```
+
+In this case, the button will always have `bg-blue-500` even when not hovered.  The `hover:bg-blue-700` will also be applied, but it will be overridden by the base `bg-blue-500`.
